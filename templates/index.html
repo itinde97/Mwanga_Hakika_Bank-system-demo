@@ -11,7 +11,7 @@
         a:hover {
             text-decoration: none;
         }
-        
+
         .foot {
             position: absolute;
             bottom: 0px;
@@ -20,21 +20,57 @@
         }
     </style>
 {% endblock %}
-        
 
-{% block bodycontent %}    
+
+{% block bodycontent %}
     <div class="container text-center">
         <h1>Welcome to MWANGA HAKIKA BANK</h1>
         <h4><em>We are stronger together</em></h4>
     </div>
-    
+
     <br>
-    
-    <div class="container">
-        <a href="{% url 'accounts:signup' %}"><button class="btn btn-primary btn-block" id="acc"><i class="fa fa-user"></i> Create new account</button></a>
-        <br> 
-        <a href="{% url 'accounts:signin' %}"><button class="btn btn-danger btn-block" id="sign_in"><i class="fa fa-sign-in"></i> Sign in</button></a>
-    </div>
-    
+    <script>
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	theme: "light2", // "light1", "light2", "dark1", "dark2"
+	title: {
+		text: "REGIONAL DAILY TRANSACTIONS"
+	},
+	axisY: {
+		title: "Daily usage (in %)",
+		suffix: "%"
+	},
+	axisX: {
+		title: "Regions"
+	},
+	data: [{
+		type: "column",
+		yValueFormatString: "#,##0.0#\"%\"",
+		dataPoints: [
+			{ label: "Dar", y: 7.1 },
+			{ label: "Arusha", y: 6.70 },
+			{ label: "Tanga", y: 5.00 },
+			{ label: "Moshi", y: 2.50 },
+			{ label: "Dom", y: 2.30 },
+			{ label: "Mwanza", y: 1.80 },
+			{ label: "Moro", y: 1.60 },
+			{ label: "Mbeya", y: 1.60 }
+
+		]
+	}]
+
+});
+chart.render();
+
+}
+</script>
+ <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+      <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+
+
+
     <br>
 {% endblock %}
