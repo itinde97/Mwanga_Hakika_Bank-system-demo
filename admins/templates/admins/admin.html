@@ -151,64 +151,18 @@
                             </td>
                         </tr>
 
-                        <tr>
-                            <td>0033</td>
-                            <td>Bishoo Kitaa</td>
-                            <td>Car loan, for the kick!</td>
-                            <td>200000</td>
-                            <td class="row">
-                                <button class="btn btn-success col btn-block">APPROVE</button>
-                                <button class="btn btn-danger col btn-block">REJECT</button>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>0044</td>
-                            <td>Nickson Kisarawe</td>
-                            <td>Wayne Industry collapsed. That maniac, Bane, has held the police force hostage, dethrown me from my own company, and intends to destroy Gotham. I must stop him.</td>
-                            <td>350000</td>
-                            <td class="row">
-                                <button class="btn btn-success col btn-block">APPROVE</button>
-                                <button class="btn btn-danger col btn-block">REJECT</button>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>0055</td>
-                            <td>Jimmy Mbelwa</td>
-                            <td>Wakanda betrayed me. Find out more in my feature-film, "Black Panther." Trailers are out already.</td>
-                            <td>500000</td>
-                            <td class="row">
-                                <button class="btn btn-success col btn-block">APPROVE</button>
-                                <button class="btn btn-danger col btn-block">REJECT</button>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>0066</td>
-                            <td>Tony Stark</td>
-                            <td>Need to build Thanos-Buster. Because why the hell not?</td>
-                            <td>2000000</td>
-                            <td class="row">
-                                <button class="btn btn-success col btn-block">APPROVE</button>
-                                <button class="btn btn-danger col btn-block">REJECT</button>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>Saxon Ong</td>
-                            <td>Athuman Makubi</td>
-                            <td>Casterly Rock's gold mines are exhausted, thanks to that pompous drunk King.</td>
-                            <td>5000000</td>
-                            <td class="row">
-                                <button class="btn btn-success col btn-block">APPROVE</button>
-                                <button class="btn btn-danger col btn-block">REJECT</button>
-                            </td>
-                        </tr>
                     </tbody>
                 </table>
 
                 <br>
+                {%for team in object%}
+  <form method="POST">
+      {%csrf_token%}
+    <input type="hidden" name="team_id" value={{ team.id }}>
+    <input type="submit" value="reject" name="status">
+    <input type="submit" value="accept" name="status">
+  </form>
+{% endfor %}
 
                 <h4 style="color: red" id="delete-acc">Danger zone</h4>
                 <div>
